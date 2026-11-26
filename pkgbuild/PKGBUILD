@@ -1,0 +1,26 @@
+pkgname=wboard
+pkgver=r12.123456
+pkgrel=1
+pkgdesc="A virtaul keyboard for Wayland."
+url="https://github.com/hikmet517/wboard"
+arch=('x86_64')
+license=('GPL')
+makedepends=('meson' 'python')
+depends=('libxml2' 'wayland' 'libxkbcommon' 'cairo' 'pango')
+source=("git+https://github.com/hikmet517/wboard.git")
+md5sums=("SKIP")
+
+pkgver() {
+  cd "wboard"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "${srcdir}/wboard"
+    arch-meson wboard build
+    meson compile -C build
+}
+
+package() {
+    meson install -C build --destdir "$pkgdir"
+}
