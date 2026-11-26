@@ -67,7 +67,7 @@ wb_uinput_init()
 }
 
 
-static void
+static bool
 uinput_emit(int type, int code, int value)
 {
     struct input_event ie = {
@@ -76,19 +76,24 @@ uinput_emit(int type, int code, int value)
         .value = value,
     };
 
-    write(fd, &ie, sizeof(ie));
+    if (write(fd, &ie, sizeof(ie)) == -1) {
+        return false;
+    }
 
     ie.type = EV_SYN;
     ie.code = SYN_REPORT;
     ie.value = 0;
-    write(fd, &ie, sizeof(ie));
+    if (write(fd, &ie, sizeof(ie)) == -1) {
+        return false;
+    }
+    return true;
 }
 
 
-void
+bool
 wb_uinput_emit_key(int code, int value)
 {
-    uinput_emit(EV_KEY, code, value);
+    return uinput_emit(EV_KEY, code, value);
 }
 
 

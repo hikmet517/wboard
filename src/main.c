@@ -1047,11 +1047,11 @@ init(wb_app_t *app)
 
     // anchor widgets
     app->widgets.anchor_lbl = wb_label_init("Anchor:");
-    app->widgets.anchor_top_tggl = wb_togglebutton_init("⤒", anchor_top_button_on_toggle, app);
+    app->widgets.anchor_top_tggl = wb_togglebutton_init("↑", anchor_top_button_on_toggle, app);
     app->widgets.anchor_bottom_tggl =
-        wb_togglebutton_init("⤓", anchor_bottom_button_on_toggle, app);
-    app->widgets.anchor_left_tggl = wb_togglebutton_init("⇤", anchor_left_button_on_toggle, app);
-    app->widgets.anchor_right_tggl = wb_togglebutton_init("⇥", anchor_right_button_on_toggle, app);
+        wb_togglebutton_init("↓", anchor_bottom_button_on_toggle, app);
+    app->widgets.anchor_left_tggl = wb_togglebutton_init("←", anchor_left_button_on_toggle, app);
+    app->widgets.anchor_right_tggl = wb_togglebutton_init("→", anchor_right_button_on_toggle, app);
     set_anchor_from_config(app);
 
     // width widgets

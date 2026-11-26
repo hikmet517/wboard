@@ -9,7 +9,7 @@
 bool
 wb_uinput_init();
 
-void
+bool
 wb_uinput_emit_key(int code, int value);
 
 void
