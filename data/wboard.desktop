@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=WBoard
-Comment=On-screen keyboard for Wayland
+Comment=A virtual keyboard for Wayland
 Exec=wboard
 Icon=input-keyboard
 Terminal=false
 Type=Application
 Categories=Utility;Accessibility;
-Keywords=keyboard;virtual keyboard;onscreen;osk;
+Keywords=keyboard;virtual keyboard;onscreen keyboard;osk;
