@@ -1,5 +1,5 @@
 pkgname=wboard
-pkgver=r3.65dbbc6
+pkgver=r3.5347c9a
 pkgrel=1
 pkgdesc="A virtaul keyboard for Wayland."
 url="https://github.com/hikmet517/wboard"
@@ -17,7 +17,7 @@ pkgver() {
 
 build() {
     cd "${srcdir}/${pkgname}"
-    meson setup build --prefix=/usr
+    meson setup build --buildtype=release --prefix=/usr
     meson compile -C build
 }
 
