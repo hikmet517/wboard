@@ -3,12 +3,12 @@ python = import('python').find_installation('python3')
 generated_files = custom_target(
   'generate-layouts',
   output: [
-    'iso-a-full.svg',
-    'iso-e-full.svg',
-    'iso-b-full.svg',
-    'iso-j-full.svg',
-    'iso-k-full.svg',
-    'iso-l-full.svg',
+    'iso-a.svg',
+    'iso-e.svg',
+    'iso-b.svg',
+    'iso-j.svg',
+    'iso-k.svg',
+    'iso-l.svg',
   ],
   command: [
     python,

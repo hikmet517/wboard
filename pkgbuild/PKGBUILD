@@ -1,5 +1,5 @@
 pkgname=wboard
-pkgver=r12.123456
+pkgver=r3.65dbbc6
 pkgrel=1
 pkgdesc="A virtaul keyboard for Wayland."
 url="https://github.com/hikmet517/wboard"
@@ -11,16 +11,17 @@ source=("git+https://github.com/hikmet517/wboard.git")
 md5sums=("SKIP")
 
 pkgver() {
-  cd "wboard"
+  cd "${pkgname}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-    cd "${srcdir}/wboard"
-    arch-meson wboard build
+    cd "${srcdir}/${pkgname}"
+    meson setup build --prefix=/usr
     meson compile -C build
 }
 
 package() {
-    meson install -C build --destdir "$pkgdir"
+    cd "$srcdir/${pkgname}"
+    meson install -C build --destdir "${pkgdir}"
 }
